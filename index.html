@@ -27,6 +27,7 @@
   --hub-h:46px;
 }
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 html,body{height:100%}
 body{margin:0;font-family:var(--sans);font-size:13px;color:var(--ink);background:var(--doc-bg);overflow:hidden}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
@@ -2085,6 +2086,7 @@ function renderPanel(){
   $('btRev').setAttribute('aria-pressed',String(view==='revisao'));
   T.classList.toggle('deep',['widget','section'].includes(view));
   tabs.hidden=!['widget','kit'].includes(view);
+  if(tabs.hidden)tabs.innerHTML='';
   if(view==='revisao'){
     const rs=review();
     $('pName').textContent='Revisão do painel';$('pMeta').textContent=rs.length?rs.length+' pontos':'tudo certo';
